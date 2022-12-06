@@ -16,3 +16,20 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+input:focus, input[type]:focus {
+    border-color: rgb(232, 174, 48);
+    box-shadow: 0 1px 1px rgba(232, 174, 48)inset, 0 0 8px rgba(232, 174, 48);
+    outline: 0 none;
+}
+
+#textareCls:focus {
+    border-color: rgb(232, 174, 48);
+    box-shadow: 0 1px 1px rgba(232, 174, 48)inset, 0 0 8px rgba(232, 174, 48);
+    outline: 0 none;
+}
+#selectCls:focus {
+    border-color: rgb(232, 174, 48);
+    box-shadow: 0 1px 1px rgba(232, 174, 48)inset, 0 0 8px rgba(232, 174, 48);
+    outline: 0 none;
+}

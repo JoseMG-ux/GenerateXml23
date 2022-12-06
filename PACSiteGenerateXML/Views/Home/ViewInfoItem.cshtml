@@ -1,0 +1,136 @@
+﻿@{
+    ViewData["Title"] = "Informacion del producto";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/css/site.css" />
+   
+</head>
+<body>
+        <div class="card shadow p-1 mb-5 bg-white rounded" style="width:100rem; height: auto; margin-left: -15rem">
+            <div class="card-body">
+                <h3 class="card-title- text-center"><strong>Información de los productos</strong></h3>
+                <hr />
+                <form>
+                    <div class="card shadow p-3 mb-5 bg-white rounded" style="width:auto; height: auto">
+
+                    <table class="table table-bordered overflow-auto">
+                            <thead>
+                                <tr>                       
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Precio final</th>
+                                </tr>
+                            </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="card" style="width: 25rem;">
+                                        <div class="card-body">
+                                            <h5 class="card-title"><strong>Producto 1</strong></h5>
+                                            <hr />
+                                            <h6 class="card-subtitle mb-2 text-muted">Descripción del producto</h6>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                    <td>20.00</td>                       
+                                </tr> 
+                                <tr>
+                                    <td class="text-right">Subtotal sin impuestos:</td>
+                                    <td>20.00</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">ITBMS:</td>
+                                    <td>3.50</td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right">ISC:</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-right bg-success"><strong>Total precio final</strong>:</td>
+                                    <td class="bg-success text-center"><strong>23.50</strong></td>
+                                </tr>                           
+                            </tbody>
+                        </table>
+                        <div>
+                        <button id="" type="button" class="btn btn-outline-success rounded-pill btn-new-item">Agregar nuevo producto</button>
+                        </div>
+                    </div>
+                        <div style="text-align: right;">
+                            <button type="submit" asp-controller="Home" asp-action="" class="btn btn-dark">Siguiente</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Agregar nuevo producto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="recipient-name" class="col-form-label">Codigo del Item:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                       
+                            <div class="form-group col-md-4">
+                                <label for="message-text" class="col-form-label">Cantidad del producto o servicio:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col-md-3">
+                                <label for="message-text" class="col-form-label">Precio Unitario:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                            <div class="form-group">
+                                <label for="message-text" class="col-form-label">Precio del acarreo del producto:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-text" class="col-form-label">Descripción:</label>
+                            <textarea class="form-control" rows="5" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn bg-danger text-light btn-close" data-dismiss="myModal">Close</button>
+                    <button type="button" class="btn bg-success text-light btn-save">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".btn-new-item").on("click",function () {
+            $('#myModal').modal('show');
+        });
+        $(".btn-close").on("click", function () {
+            $('#myModal').modal('hide');
+        });
+        $(".btn-save").on("click", function () {
+
+            //codigo
+
+            $('#myModal').modal('hide');
+        });
+    });
+</script>

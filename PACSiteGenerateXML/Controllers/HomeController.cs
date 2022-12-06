@@ -18,6 +18,36 @@ namespace PACSiteGenerateXML.Controllers
             return View();
         }
 
+        public IActionResult Modal()
+        {
+            return View();
+        }
+
+        public IActionResult ViewOpInterna()
+        {
+            return View();
+        }
+
+        public IActionResult ViewInfoEmisor()
+        {
+            return View();
+        }
+        
+        public IActionResult ViewInfoReceptor()
+        {
+            return View();
+        }
+
+        public IActionResult ViewRegistrarItem()
+        {
+            return View();
+        }
+
+        public IActionResult ViewInfoItem()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
