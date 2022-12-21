@@ -10,14 +10,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/css/site.css" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
-    <div class="card shadow p-3 mb-5 bg-white rounded" style="width:auto; height: auto">
+    <div class="card shadow p-3 mb-5 bg-white" style="width:auto; height: auto;  border-radius:2rem">
         <div class="card-body">
             <h5 class="card-title"><strong>Información de Operación Interna</strong></h5>
             <hr />
-           
              <form>
                 <div class="form-row">
                     <div class="form-group col-md-6">
@@ -32,14 +32,15 @@
                     </div>
 
                 </div>
-                <div class="form-row">
-                        <div class="form-group col-md-4">
-                            <label for="inputAddress">Fecha de Emisión del Documento:</label>
-                        @Html.TextBoxFor(x => DateTime.Today, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date"})
-                        </div>
+                
                 <!-- SELECTS -->
+                    <div class="form-row">
                         <div class="form-group col-md-4">
-                            <label for="inputState">Naturaleza de Operación:</label>
+                                <label for="inputAddress">Fecha de Emisión del Documento:</label>
+                                    @Html.TextBoxFor(x => DateTime.Today, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date"})
+                        </div>   
+                        <div class="form-group col-md-4">
+                                <label for="inputState">Naturaleza de Operación:</label>
                             <select id="selectCls" class="form-control">
                                 <option selected>Escoga una opción:</option>
                                 <option value="01">Venta</option>
@@ -53,69 +54,62 @@
                                 <option value="21">Importación</option>
                             </select>
                         </div>
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                    <label for="inputState">Tipo de Operación:</label>
-                                <select id="selectCls" class="form-control">
-                                        <option selected>Escoga una opción:</option>
-                                        <option value="1">Salida o venta</option>
-                                        <option value="2">Entrada o compra</option>
-                                    </select>
-                                </div>
-
-                            <div class="form-group col-md-4">
-                                <label for="inputState">Destino de Operación:</label>
-                                <select id="selectCls" class="form-control">
-                                    <option selected>Escoga una opción:</option>
-                                    <option value="1">Panamá</option>
-                                    <option value="2">Extranjero</option>
-                                </select>
-                            </div>
-                
-                            <div class="form-group col-md-4">
-                        <label for="inputState">Forma de generación de <strong>CAFE</strong>:</label>
-                                <select id="selectCls" class="form-control">
-                                    <option selected>Escoga una opción:</option>
-                                    <option value="1">Sin generación de CAFE</option>
-                                    <option value="2">Cinta de papel</option>
-                                    <option value="3">Papel formato carta (A4)</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-row">
-                            <div class="form-group col-md-4">
-                                <label for="inputState">Envio del contenedor para el receptor:</label>
-                                <select id="selectCls" class="form-control">
-                                    <option selected>Escoga una opción:</option>
-                                    <option value="1">Normal</option>
-                                    <option value="2">Receptor exceptúa...</option>
-                                </select>
-                            </div>
-                
-                            <div class="form-group col-md-4">
-                                <label for="inputState">Tipo de transacción de venta:</label>
-                                <select id="selectCls" class="form-control">
-                                    <option selected>Escoga un opción:</option>
-                                    <option value="1">Venta de giro del negocio</option>
-                                    <option value="2">Venta Activo Fijo</option>
-                                    <option value="3">Venta de Bienes Raices</option>
-                                    <option value="4">Prestación de Servicio</option>
-                                </select>
-                            </div>
-                
-                    <div class="form-group col-md-4">
-                        <label for="inputState">Tipo de Sucursal:</label>
-                        <select id="selectCls" class="form-control">
-                            <option selected>Escoga una opción:</option>
-                            <option value="1">Mayor cantidad de ventas al detal</option>
-                            <option value="2">Mayor cantidad de ventas al por mayor</option>
-                        </select>
                     </div>
-
-                </div>
-                
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                                <label for="inputState">Tipo de Operación:</label>
+                            <select id="selectCls" class="form-control">
+                                <option selected>Escoga una opción:</option>
+                                <option value="1">Salida o venta</option>
+                                <option value="2">Entrada o compra</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                                <label for="inputState">Destino de Operación:</label>
+                            <select id="selectCls" class="form-control">
+                                <option selected>Escoga una opción:</option>
+                                <option value="1">Panamá</option>
+                                <option value="2">Extranjero</option>
+                            </select>
+                         </div>
+                        <div class="form-group col-md-4">
+                                <label for="inputState">Forma de generación de <strong>CAFE</strong>:</label>
+                            <select id="selectCls" class="form-control">
+                                <option selected>Escoga una opción:</option>
+                                <option value="1">Sin generación de CAFE</option>
+                                <option value="2">Cinta de papel</option>
+                                <option value="3">Papel formato carta (A4)</option>
+                            </select>
+                         </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                                <label for="inputState">Envio del contenedor para el receptor:</label>
+                            <select id="selectCls" class="form-control">
+                                <option selected>Escoga una opción:</option>
+                                <option value="1">Normal</option>
+                                <option value="2">Receptor exceptúa...</option>
+                            </select>
+                                </div>            
+                        <div class="form-group col-md-4">
+                                <label for="inputState">Tipo de transacción de venta:</label>
+                            <select id="selectCls" class="form-control">
+                                <option selected>Escoga un opción:</option>
+                                <option value="1">Venta de giro del negocio</option>
+                                <option value="2">Venta Activo Fijo</option>
+                                <option value="3">Venta de Bienes Raices</option>
+                                <option value="4">Prestación de Servicio</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                                <label for="inputState">Tipo de Sucursal:</label>
+                            <select id="selectCls" class="form-control">
+                                <option selected>Escoga una opción:</option>
+                                <option value="1">Mayor cantidad de ventas al detal</option>
+                                <option value="2">Mayor cantidad de ventas al por mayor</option>
+                            </select>
+                        </div>
+                    </div>        
                 <!-- END SELECTS -->
 
                 <div class="form-row">
@@ -132,5 +126,9 @@
     </div>
     <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+        localStorage.setItem('progress-bar', '40%');
+</script>
 </body>
 </html>

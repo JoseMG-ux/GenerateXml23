@@ -19,21 +19,21 @@ public partial class rEnviFe
     private xFe xFeField;
 
     /// <remarks/>
-    public string dVerForm
+    public string dVerForm //Control de versiones
     {
         get { return this.dVerFormField; }
         set { this.dVerFormField = value; }
     }
 
     /// <remarks/>
-    public string dId
+    public string dId //Identificador para FE
     {
         get { return this.dIdField; }
         set { this.dIdField = value; }
     }
 
     /// <remarks/>
-    public int iAmb
+    public int iAmb //Ambiente Prueba o Desarrollo
     {
         get { return this.iAmbField; }
         set { this.iAmbField = value; }

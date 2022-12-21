@@ -1,0 +1,16 @@
+
+        [
+            { codigo: "1", ubicacion: "Bocas del Toro" },
+            { codigo: "2", ubicacion: "Coclé" },
+            { codigo: "3", ubicacion: "Colón" },
+            { codigo: "4", ubicacion: "Chiriquí" },
+            { codigo: "5", ubicacion: "Darién" },
+            { codigo: "6", ubicacion: "Herrera" },
+            { codigo: "7", ubicacion: "Los Santos" },
+            { codigo: "8", ubicacion: "Panamá" },
+            { codigo: "9", ubicacion: "Veraguas" },
+            { codigo: "10", ubicacion: "Comarca Kuna Yala" },
+            { codigo: "11", ubicacion: "Comarca Embera-Wounaan" },
+            { codigo: "12", ubicacion: "Comarca Ngäbe-Buglé" },
+            { codigo: "13", ubicacion: "Panamá Oeste" },
+        ]

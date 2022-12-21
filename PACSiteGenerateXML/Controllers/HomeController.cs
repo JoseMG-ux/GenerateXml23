@@ -1,16 +1,18 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Nancy.Json;
+using Newtonsoft.Json;
 using PACSiteGenerateXML.Models;
-using System.Diagnostics;
+using System.Collections;
 
 namespace PACSiteGenerateXML.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public IActionResult Login()
         {
-            _logger = logger;
+            return View();
         }
 
         public IActionResult Index()
@@ -30,12 +32,48 @@ namespace PACSiteGenerateXML.Controllers
 
         public IActionResult ViewInfoEmisor()
         {
-            return View();
+            Selects modeloSuper = new();
+
+            StreamReader readerProvincias = new StreamReader("./json/CatalogoProvincias.json");
+            string jsonStringPr = readerProvincias.ReadToEnd();
+            List<Provincias> provincias = JsonConvert.DeserializeObject<List<Provincias>>(jsonStringPr);
+
+            modeloSuper.Provincias = provincias;
+
+            return View(modeloSuper);
         }
-        
-        public IActionResult ViewInfoReceptor()
+
+        public ActionResult<Selects> ViewInfoReceptor(string codigoProvincia)
         {
-            return View();
+            Selects modeloSuper = new();
+
+            #region StreamReader
+            StreamReader readerPaises = new StreamReader("./json/CatalogoPaises.json");
+            StreamReader readerProvincias = new StreamReader("./json/CatalogoProvincias.json");
+            //StreamReader readerCorregimientos = new StreamReader("./json/CatalogoCorregimientos.json");
+            StreamReader readerDistritos = new StreamReader("./json/CatalogoDistritos.json");
+
+            string jsonStringPa = readerPaises.ReadToEnd();
+            string jsonStringPr = readerProvincias.ReadToEnd();
+            //string jsonStringC = readerCorregimientos.ReadToEnd();
+            string jsonStringD = readerDistritos.ReadToEnd();
+            #endregion
+
+            List<Paises> paises = JsonConvert.DeserializeObject<List<Paises>>(jsonStringPa);
+
+            List<Provincias> provincias = JsonConvert.DeserializeObject<List<Provincias>>(jsonStringPr);
+
+            //Corregimientos[] corregimientos = JsonConvert.DeserializeObject<Corregimientos[]>(jsonStringC);
+
+            List<Distritos> distritos = JsonConvert.DeserializeObject<List<Distritos>>(jsonStringD);
+
+            List<Distritos> distritosSeleccionados = distritos.Where(x => x.codigo.Split("-")[0] == codigoProvincia).ToList();
+            
+            modeloSuper.Paises = paises;
+            modeloSuper.Provincias = provincias;
+            modeloSuper.Distritos = distritosSeleccionados;
+            //modeloSuper.Corregimientos = corregimientos;
+            return View(modeloSuper);
         }
 
         public IActionResult ViewRegistrarItem()
@@ -51,12 +89,6 @@ namespace PACSiteGenerateXML.Controllers
         public IActionResult Privacy()
         {
             return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
